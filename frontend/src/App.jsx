@@ -4,7 +4,7 @@ import ConfigStep from "./components/ConfigStep";
 import ResultsStep from "./components/ResultsStep";
 import MultiResults from "./components/MultiResults";
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://nyayai-0o6j.onrender.com";
 
 const INDIA_ATTRS = ["caste", "religion", "state", "region", "language", "rural_urban", "gender", "age_group", "tribe", "district"];
 const OUTCOME_NAMES = ["approved", "selected", "eligible", "status", "outcome", "result", "label"];
