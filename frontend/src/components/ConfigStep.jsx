@@ -70,14 +70,10 @@ export default function ConfigStep({ columns, preview, config, setConfig, onAnal
             )}
             {type === "lang" && (
               <select value={config[key]} onChange={e => set(key, e.target.value)}
-                style={{ width: "100%", padding: "11px 14px", borderRadius: "var(--radius)", border: "1px solid var(--border2)", background: "var(--card)", color: "var(--text)", fontSize: 14 }}>
+                style={{ width:"100%", padding:"11px 14px", borderRadius:10, border:"1px solid var(--border2)", background:"var(--bg2)", color:"var(--text)", fontSize:14 }}>
                 <option value="English">English</option>
                 <option value="Hindi">हिंदी (Hindi)</option>
-                <option value="Tamil">தமிழ் (Tamil)</option>
-                <option value="Telugu">తెలుగు (Telugu)</option>
-                <option value="Marathi">मराठी (Marathi)</option>
-                <option value="Bengali">বাংলা (Bengali)</option>
-                <option value="Kannada">ಕನ್ನಡ (Kannada)</option>
+        
               </select>
             )}
             <div style={{ fontSize: 11, color: "var(--text3)", marginTop: 6 }}>{hint}</div>

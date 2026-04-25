@@ -78,11 +78,7 @@ def get_gemini_explanation(metrics, language):
         client = genai.Client(api_key=GEMINI_API_KEY)
         lang_map = {
             "Hindi":   "You MUST respond entirely in Hindi using Devanagari script. Do not use English at all.",
-            "Tamil":   "You MUST respond entirely in Tamil script. Do not use English at all.",
-            "Telugu":  "You MUST respond entirely in Telugu script. Do not use English at all.",
-            "Marathi": "You MUST respond entirely in Marathi using Devanagari script. Do not use English at all.",
-            "Bengali": "You MUST respond entirely in Bengali script. Do not use English at all.",
-            "Kannada": "You MUST respond entirely in Kannada script. Do not use English at all.",
+            
         }
         lang_instruction = lang_map.get(language, "Respond in English.")
         prompt = f"""You are NyayAI, an AI bias auditor for Indian government schemes.
@@ -110,7 +106,7 @@ def generate_fallback_explanation(metrics, language):
     min_group = min(rates, key=rates.get)
     diff = rates[max_group] - rates[min_group]
     bias = metrics["bias_level"]
-    if language in ["Hindi", "Marathi"]:
+    if language == "Hindi":
         return (f"'{metrics['attribute']}' ke aadhar par {bias.lower()} pakshapat paya gaya. "
                 f"'{max_group}' ko {rates[max_group]:.1f}% anumodan mila, jabki "
                 f"'{min_group}' ko kewal {rates[min_group]:.1f}% mila ({diff:.1f}% ka antar). "
