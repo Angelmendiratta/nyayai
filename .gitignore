@@ -1,0 +1,17 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Node
+node_modules/
+frontend/dist/
+
+# VS Code
+.vscode/
+
+# Build artifacts
+*.egg-info/
+.pytest_cache/
