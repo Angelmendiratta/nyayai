@@ -107,15 +107,14 @@ def generate_fallback_explanation(metrics, language):
     diff = rates[max_group] - rates[min_group]
     bias = metrics["bias_level"]
     if language == "Hindi":
-        return (f"'{metrics['attribute']}' ke aadhar par {bias.lower()} pakshapat paya gaya. "
-                f"'{max_group}' ko {rates[max_group]:.1f}% anumodan mila, jabki "
-                f"'{min_group}' ko kewal {rates[min_group]:.1f}% mila ({diff:.1f}% ka antar). "
-                f"Sujhav: '{min_group}' samuh ke data ki samiksha karein.")
+        return (f"'{metrics['attribute']}' के आधार पर {bias.lower()} पक्षपात पाया गया। "
+                f"'{max_group}' समूह को {rates[max_group]:.1f}% अनुमोदन मिला, जबकि "
+                f"'{min_group}' समूह को केवल {rates[min_group]:.1f}% मिला — {diff:.1f}% का अंतर। "
+                f"सुझाव: '{min_group}' समूह के डेटा संग्रह की समीक्षा करें।")
     else:
-        return (f"{bias} bias on '{metrics['attribute']}'. "
-                f"'{max_group}' gets {rates[max_group]:.1f}% vs '{min_group}' gets {rates[min_group]:.1f}% — {diff:.1f}% gap. "
-                f"Fix: Review data collection for '{min_group}' group and apply re-weighting.")
-
+        return (f"{bias} bias detected on '{metrics['attribute']}'. "
+                f"'{max_group}' gets {rates[max_group]:.1f}% approval vs '{min_group}' gets only {rates[min_group]:.1f}% — a {diff:.1f}% gap. "
+                f"Recommendation: Review data collection for '{min_group}' group and apply re-weighting.")
 
 @app.post("/analyze")
 async def analyze_bias(request: AnalyzeRequest):
